@@ -21,7 +21,7 @@ app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`)
     sequelize.authenticate().then(async () => {
         console.log("Conetando a base de dados")
-        await sequelize.sync({alter: true})
+        // await sequelize.sync({alter: true})
     })
     .catch((e) => {
         console.log(e)
