@@ -22,7 +22,7 @@ async function createJPModel(request, response) {
 
 async function deleteJPModel(request, response) {
     try {
-        const { id_code } = request.body;
+        const id_code = request.params.id_code;
 
         if (!id)
             return response.status(400).send({
