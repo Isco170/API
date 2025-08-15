@@ -13,7 +13,7 @@ app.get('/', (request, response) => {
     return response.send('Bem-vindo')
 })
 
-app.use('/jptamplate', jpRoutes)
+app.use('/jptemplate', jpRoutes)
 
 const PORT = process.env.PORT || 443
 
