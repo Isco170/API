@@ -20,11 +20,42 @@ async function createJPModel(request, response) {
     }
 }
 
-// async function readJPModel(request, response){
+async function deleteJPModel(request, response) {
+    try {
+        const { id, id_code } = request.body;
 
-// }
+        if (!id)
+            return response.status(400).send({
+                error: true,
+                message: 'Sem id',
+                data: null
+            })
+
+        try {
+            await jpModel.destroy({ where: { id: id, id_code: id_code}})
+            return response.status(200).send({
+                error: false,
+                message: 'Data deleted',
+                data: null
+            })
+        } catch (error) {
+            return response.status(400).send({
+                error: true,
+                message: 'Falha ao deletar JP',
+                data: error
+            })
+        }
+    } catch (error) {
+        return response.status(400).send({
+            error: true,
+            message: 'Falha ao deletar JP',
+            data: error
+        })
+    }
+}
+
 
 module.exports = {
     createJPModel,
-    // readJPModel
+    deleteJPModel
 }
