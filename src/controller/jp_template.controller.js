@@ -22,7 +22,7 @@ async function createJPModel(request, response) {
 
 async function deleteJPModel(request, response) {
     try {
-        const { id, id_code } = request.body;
+        const { id_code } = request.body;
 
         if (!id)
             return response.status(400).send({
@@ -32,7 +32,7 @@ async function deleteJPModel(request, response) {
             })
 
         try {
-            await jpModel.destroy({ where: { id: id, id_code: id_code}})
+            await jpModel.destroy({ where: { id_code: id_code}})
             return response.status(200).send({
                 error: false,
                 message: 'Data deleted',
