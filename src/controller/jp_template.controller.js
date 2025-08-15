@@ -25,7 +25,7 @@ async function deleteJPModel(request, response) {
         const id_code = request.params.id_code;
 
 
-        if (!id)
+        if (!id_code)
             return response.status(400).send({
                 error: true,
                 message: 'Sem id',
