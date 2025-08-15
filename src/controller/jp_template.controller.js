@@ -21,6 +21,7 @@ async function createJPModel(request, response) {
 }
 
 async function deleteJPModel(request, response) {
+    console.log('HERE')
     try {
         const id_code = request.params.id_code;
 
