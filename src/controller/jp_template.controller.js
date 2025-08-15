@@ -24,6 +24,8 @@ async function deleteJPModel(request, response) {
     try {
         const id_code = request.params.id_code;
 
+        console.log(id_code)
+
         if (!id)
             return response.status(400).send({
                 error: true,
@@ -39,6 +41,8 @@ async function deleteJPModel(request, response) {
                 data: null
             })
         } catch (error) {
+            console.log('Error deleting')
+            console.log(error)
             return response.status(400).send({
                 error: true,
                 message: 'Falha ao deletar JP',
